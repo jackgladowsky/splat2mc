@@ -213,8 +213,9 @@ def generate_mcfunction(
         # Scale particle size (clamp to Minecraft's 0.01-4 range)
         particle_scale = max(0.1, min(4.0, s.scale * 50))
         
-        # Generate particle command
-        line = f"particle dust{{color:[{r:.3f},{g:.3f},{b:.3f}],scale:{particle_scale:.2f}}} {pos} 0 0 0 0 1 force"
+        # Generate particle command (1.13-1.20.4 compatible format)
+        # Format: particle dust <r> <g> <b> <size> <pos> <delta> <speed> <count> [force]
+        line = f"particle dust {r:.3f} {g:.3f} {b:.3f} {particle_scale:.2f} {pos} 0 0 0 0 1 force"
         lines.append(line)
     
     return "\n".join(lines)
