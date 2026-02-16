@@ -240,7 +240,7 @@ def generate_datapack(
     
     # Create datapack structure
     datapack_dir = output_dir / f"splat_{safe_name}"
-    functions_dir = datapack_dir / "data" / "splats" / "function"
+    functions_dir = datapack_dir / "data" / "splats" / "functions"
     functions_dir.mkdir(parents=True, exist_ok=True)
     
     # Write pack.mcmeta
